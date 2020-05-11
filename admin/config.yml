@@ -1,5 +1,5 @@
 backend:
-  name: netlify
+  name: github
   repo: import-your-ideas/netlify_admin
   branch: master
   site_domain: import-your-ideas.netlify.app
