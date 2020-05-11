@@ -29,10 +29,28 @@ url: "https://import-your-ideas.netlify.app/" # the base hostname & protocol for
 twitter_username: jekyllrb
 github_username:  jekyll
 
-# Build settings
-# theme: jekyll-theme-cayman
+
+version: v4.0.1
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
+
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :expanded # You might prefer to minify using :compressed
+
+# Use the following plug-ins
 plugins:
-  - jekyll-feed
+  - "jekyll-github-metadata"
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -43,16 +61,13 @@ plugins:
 # their entries' file path in the `include:` list.
 #
 exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
+  - LICENSE
+  - README.md
+  - CNAME
   - Gemfile
   - Gemfile.lock
   - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
   - package.json
   - src
-  - node_modules
+
+theme: minima
